@@ -43,5 +43,45 @@ const bookStore = {
     ]
 }
 
-// Write your code here!
+// Write your code here/ Updating Existing Element
+const bookStoreTitle = document.getElementById("header");
+bookStoreTitle.textContent = bookStore.name;
+
+// Selecting the book list
+const bookList = document.getElementById("book-list");
+
+// Creating New Elements
+bookStore.books.forEach(function(book) {
+
+    // Creating the book container
+    const bookContainer = document.createElement("li");
+
+    // Creating the book title
+    const bookTitle = document.createElement("h3");
+    bookTitle.textContent = book.title;
+
+    // Creating the book author
+    const bookAuthor = document.createElement("p");
+    bookAuthor.textContent = book.author;
+
+    // Creating the book image
+    const bookImage = document.createElement("img");
+    bookImage.src = book.imageUrl;
+    bookImage.alt = book.title;
+
+    // Appending elements to the book container
+    bookContainer.appendChild(bookTitle);
+    bookContainer.appendChild(bookAuthor);
+    bookContainer.appendChild(bookImage);
+
+    // Adding the book to the book list
+    bookList.appendChild(bookContainer);
+});
+
+// Deleting Elements
+const elementToDelete = document.getElementById("delete-this");
+
+if (elementToDelete) {
+    elementToDelete.remove();
+}
 
